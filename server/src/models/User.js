@@ -38,7 +38,6 @@ module.exports = (sequelize, DataTypes) => {
 
   User.prototype.comparePassword = function (password) {
     const result = bcrypt.compare(this.password, password);
-    console.log(37, result);
     return bcrypt.compare(this.password, password);
   };
 

@@ -231,9 +231,7 @@ export default {
       // if (this.validate()) {
       this.post.slug = this.titleSlug
       this.post.userId = this.$store.state.user.id
-      await PostsService.save(this.post).then((response) => {
-        console.log(response)
-      })
+      await PostsService.save(this.post).then((response) => {})
       // }
 
       // return false

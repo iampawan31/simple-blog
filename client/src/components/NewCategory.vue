@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     async saveCategory() {
-      console.log(this.$refs.form.validate())
       if (this.$refs.form.validate()) {
         const category = { name: this.name, slug: this.slug }
         await CategoriesService.save(category).then((response) => {

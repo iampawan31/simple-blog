@@ -24,8 +24,6 @@ module.exports = {
   async login(req, res) {
     try {
       const { email, password } = req.body;
-
-      console.log(email, password);
       const user = await User.findOne({
         where: {
           email: email,
@@ -37,9 +35,7 @@ module.exports = {
           error: 'Login information is incorrect',
         });
       }
-      console.log(user);
       const isPasswordValid = user.comparePassword(password);
-      console.log(isPasswordValid);
       if (!isPasswordValid) {
         return res.status(403).send({
           error: 'Password information is incorrect',
