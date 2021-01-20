@@ -3,6 +3,8 @@ const CategoriesController = require('./controllers/CategoriesController');
 const PostsController = require('./controllers/PostsController');
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy');
 
+const authenticateJWT = require('./middlewares/authentication');
+
 module.exports = (app) => {
   app.post(
     '/register',
@@ -21,5 +23,5 @@ module.exports = (app) => {
 
   app.get('/posts/:slug', PostsController.show);
   app.get('/posts', PostsController.index);
-  app.post('/posts', PostsController.post);
+  app.post('/posts', authenticateJWT, PostsController.post);
 };
