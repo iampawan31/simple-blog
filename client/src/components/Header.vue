@@ -50,7 +50,7 @@
           </v-btn>
         </template>
         <v-list class="grey lighten-3">
-          <v-list-item @click="profile">Profile</v-list-item>
+          <v-list-item :to="{ name: 'user-profile' }">Profile</v-list-item>
           <v-list-item @click="logout">Logout</v-list-item>
         </v-list>
       </v-menu>
@@ -73,6 +73,7 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
       this.$store.dispatch('logout')
+      this.$store.push('/')
     }
   }
 }

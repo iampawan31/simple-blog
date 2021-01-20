@@ -16,7 +16,7 @@ export default {
   components: {
     Header
   },
-  async mounted() {
+  async beforeMount() {
     if (localStorage.getItem('token') !== null) {
       this.$store.dispatch('setToken', localStorage.getItem('token'))
       this.$store.dispatch('setUser', JSON.parse(localStorage.getItem('user')))

@@ -7,6 +7,7 @@ import Categories from '@/components/Categories'
 import NewPost from '@/components/NewPost'
 import ViewPost from '@/components/ViewPost'
 import NewCategory from '@/components/NewCategory'
+import Profile from '@/components/Profile'
 
 Vue.use(Router)
 
@@ -29,6 +30,14 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/user/profile',
+      name: 'user-profile',
+      component: Profile,
       meta: {
         requiresAuth: false
       }
